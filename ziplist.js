@@ -8,8 +8,9 @@ function zipList(listA, listB){
   let j = 0;
   for (var i in listA){
     temp[j] = listA[i];
-    temp[j+1] = listB[i];
-    j = j + 2;
+    j ++;
+    temp[j] = listB[i];
+    j ++;
   }
   return temp;
 }
