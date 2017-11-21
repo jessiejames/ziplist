@@ -1,25 +1,25 @@
-//console.log("hello");
+/* eslint-disable guard-for-in */
 
-let letters = ['a','b','c'];
-let numbers = [1,2,3];
+const letters = ['a', 'b', 'c'];
+const numbers = [1, 2, 3];
 
-function zipList(listA, listB){
-  let temp = [];
+function zipList(listA, listB) {
+  const temp = [];
   let j = 0;
-  for (var i in listA){
-    temp[j] = listA[i];
-    j ++;
-    temp[j] = listB[i];
-    j ++;
-  }
+  listA.forEach(function (element) {
+    temp[j] = listA[listA.indexOf(element)];
+    j++;
+    temp[j] = listB[listA.indexOf(element)];
+    j++;
+  });
   return temp;
 }
 
-function zipListTheSimpleWay(listA, listB){
-  let zipped = _.zip(listA, listB);
-  ripped = _.flatten(zipped);
-  return ripped;
+function zipListTheSimpleWay(listA, listB) {
+  const zipped = _.zip(listA, listB);
+  return _.flatten(zipped);
 }
 
 console.log(zipList(letters, numbers));
 console.log(zipListTheSimpleWay(letters, numbers));
+
